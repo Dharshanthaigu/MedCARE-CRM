@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: medrag-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: medrag
+      POSTGRES_PASSWORD: medrag_dev_password
+      POSTGRES_DB: medrag_crm
+    ports:
+      - "5432:5432"
+    volumes:
+      - medrag_pgdata:/var/lib/postgresql/data
+
+volumes:
+  medrag_pgdata:

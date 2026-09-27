@@ -1,0 +1,45 @@
+:root {
+  --page-bg: #E9EFFB;
+  --shell: #FFFFFF;
+  --sidebar: #0C2A52;
+  --sidebar-hi: #123B6E;
+  --sidebar-ink: #C9D8EF;
+  --sidebar-ink-dim: #7C93BC;
+  --surface: #FFFFFF;
+  --surface-alt: #F4F7FD;
+  --border: #E4E9F5;
+  --ink: #16233E;
+  --ink-soft: #5E6B8A;
+  --ink-faint: #96A1BE;
+  --navy: #123B6B;
+
+  --grad-violet-1: #8B7CF6; --grad-violet-2: #5B4FE0;
+  --grad-blue-1: #3E82F1;   --grad-blue-2: #1E56C4;
+  --grad-teal-1: #22C7AC;   --grad-teal-2: #14967F;
+  --grad-pink-1: #F16C93;   --grad-pink-2: #D63F6C;
+
+  --pastel-blue: #E4ECFB;   --pastel-blue-ink: #3E62C7;
+  --pastel-yellow: #FCF1D6; --pastel-yellow-ink: #B9862B;
+  --pastel-pink: #FCE3E6;   --pastel-pink-ink: #C94D6B;
+  --pastel-violet: #ECE7FD; --pastel-violet-ink: #6A57E0;
+  --pastel-green: #DEF6EC;  --pastel-green-ink: #16966F;
+
+  --success: #1F9D63; --danger: #D64545;
+  --radius-sm: 10px; --radius-md: 16px; --radius-lg: 24px; --radius-xl: 32px;
+  --shadow: 0 1px 2px rgba(16,30,60,.04), 0 14px 34px -18px rgba(16,30,60,.28);
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+h1, h2, h3 { font-family: var(--font-display); margin: 0; letter-spacing: -0.01em; }
+button { font-family: var(--font-body); cursor: pointer; }

@@ -1,0 +1,38 @@
+# ---------- Python / Backend ----------
+.venv/
+backend/.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Env files (secrets!)
+.env
+backend/.env
+*.env.local
+
+# Uploads / runtime data
+backend/uploads/
+*.log
+
+# ---------- Node / Frontend ----------
+node_modules/
+frontend/node_modules/
+dist/
+build/
+.vite/
+
+# ---------- IDE / OS ----------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---------- Docker ----------
+*.pid
+
+# ---------- Package lock noise (optional, keep if you want reproducible installs) ----------
+# package-lock.json   <- usually KEEP this committed, don't ignore

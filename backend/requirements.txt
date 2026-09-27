@@ -1,0 +1,35 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.6
+python-multipart>=0.0.9
+pydantic>=2.10
+
+# Database — Postgres + pgvector
+sqlalchemy>=2.0.35
+psycopg2-binary>=2.9.9
+pgvector>=0.3.6
+python-dotenv>=1.0.1
+
+# Auth — production-ready hashing/JWT (optional, current code works without these)
+# passlib[bcrypt]==1.7.4
+# python-jose[cryptography]==3.3.0
+
+# Phase 2 — RAG (data ingestion, retrieval, augmentation, generation)
+numpy>=1.26
+pypdf>=4.3.1          # Stage i: PDF parsing (plain text)
+pdfplumber>=0.11.4     # Stage i: PDF table extraction — keeps row/column values together
+python-docx>=1.1.2
+beautifulsoup4>=4.12
+openpyxl>=3.1.5
+anthropic>=0.34.0     # Stage iv: real LLM generation via Claude (paid — optional, stub works without it)
+requests>=2.32        # Stage iv: real LLM generation via Groq (FREE — see .env.example)
+# CSV and JSON parsing use only the Python standard library — no extra install
+
+# Stage i: image OCR — optional, needs the Tesseract binary installed separately
+# pytesseract>=0.3.13
+# Pillow>=10.4.0
+
+# Optional upgrade path for Stage ii — real neural embeddings
+# sentence-transformers==3.0.1
+
+# MCP client, for Sprint 3
+# mcp==1.0.0
