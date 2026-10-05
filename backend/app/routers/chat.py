@@ -34,6 +34,15 @@ async def get_session_messages(session_id: str, db: Session = Depends(get_db)):
 
 @router.post("/query", response_model=QueryResponse)
 async def query(payload: QueryRequest, db: Session = Depends(get_db), user=Depends(get_current_user_optional)):
+    from app.db_models import Submission
+    submission_exists = db.query(Submission).filter(Submission.id == payload.session_id).first()
+    if not submission_exists:
+        return QueryResponse(
+            answer="This chat isn't linked to a real submission yet. Please start from a submission's Pipeline status page and click 'Open chatbot', or make sure the URL includes a valid session_id.",
+            sources=[],
+            tool_calls=[],
+        )
+
     session = db.query(ChatSession).filter(ChatSession.id == payload.session_id).first()
     if not session:
         session = ChatSession(id=payload.session_id, submission_id=payload.session_id, user_id=user.id if user else None)

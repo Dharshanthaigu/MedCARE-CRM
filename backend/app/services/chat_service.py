@@ -21,7 +21,7 @@ async def answer_query(db: Session, session_id: str, message: str) -> QueryRespo
     embedder = get_embedder()
     query_vec = embedder.embed([message])[0]
 
-    chunks = search(db, submission.id, query_vec, top_k=5)
+    chunks = search(db, submission.id, query_vec, top_k=5, query_text=message)
     documents_by_id = {d.id: d for d in submission.documents}
     sources = build_sources(chunks, documents_by_id)
     prompt = build_prompt(message, sources)

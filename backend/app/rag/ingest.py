@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 
 from app.db_models import Submission, Document, Chunk
 from app.rag.parsers import parse_document
-from app.rag.chunker import chunk_text
+from app.rag.chunker import chunk_text, chunk_document
 from app.rag.embeddings import get_embedder
 
 
@@ -32,7 +32,7 @@ def run_chunk_and_embed(db: Session, submission: Submission) -> int:
 
     for doc in submission.documents:
         text = getattr(doc, "_extracted_text", None) or parse_document(doc.storage_path, doc.file_type)
-        pieces = chunk_text(text)
+        pieces = chunk_document(text)
         for i, piece in enumerate(pieces):
             all_texts.append(piece)
             all_meta.append((doc.id, i))
